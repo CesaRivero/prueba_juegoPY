@@ -99,6 +99,9 @@ class Juego(object):
             center_x=(ancho//2) - (text.get_width()//2)
             center_y= (alto//2)- (text.get_height()//2)
             ventana.blit(text,[center_x,center_y])
+            conexion = Conexion('base_de_datos/mibase.db')
+            conexion.crearTabla()
+            conexion.agregar(self.player_name, self.score)
             
 
         if not self.game_over:
